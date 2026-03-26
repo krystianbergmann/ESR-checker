@@ -1,8 +1,17 @@
-# ESR Decoder
+# ESR Checker
 
-Prosty program w Pythonie do sprawdzania orientacyjnych wartości ESR kondensatorów na podstawie pojemności.
+A simple Python console program for checking approximate ESR values of electrolytic capacitors based on capacitance.
 
-## Uruchomienie
+## Features
+- looks up maximum ESR value
+- looks up recommended ESR value for audio use
+- runs in a loop in the console
+- allows repeated manual input
+
+## Requirements
+- Python 3.x
+
+## How to run
 
 ```bash
-python decoder.py
+python main.py
