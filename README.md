@@ -40,7 +40,7 @@ This is especially important in:
 - filtering stages
 - amplifier circuits
 - audio equipment
-- restoration and repair work
+- restoration and repair work 1
 
 ## ESR Reference Levels Used in This Project
 
