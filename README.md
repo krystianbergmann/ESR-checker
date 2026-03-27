@@ -32,6 +32,12 @@ At the same time, it serves as a practical Python learning exercise focused on:
 - separating application logic from the user interface
 - building a simple UI with Streamlit
 
+## Streamlit Interface
+
+In addition to the console version, this project also includes a simple user interface built with the **Streamlit** library.
+
+Streamlit allows the application to run in the browser as a lightweight local web app. It provides a more convenient way to interact with the ESR checker without using terminal input commands.
+
 ## About ESR
 
 **ESR** stands for **Equivalent Series Resistance**.
