@@ -30,12 +30,12 @@ Streamlit makes it possible to run the project as a simple local web application
 
 ## Features
 
-- manual capacitor value input
-- ESR lookup based on capacitance
-- separate **ESR max** and **ESR Audio** reference values
-- continuous loop for repeated checks in the console version
-- simple web interface built with **Streamlit**
-- clean and beginner-friendly structure
+- ESR reference lookup based on capacitance and voltage
+- support for voltage-dependent capacitor ESR values
+- measured ESR comparison with reference ESR data
+- console-based workflow for repeated checks
+- simple and user-friendly web interface built with **Streamlit**
+- clean, modular, and beginner-friendly code structure
 
 ## Project Purpose
 
