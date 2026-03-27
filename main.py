@@ -1,10 +1,4 @@
-from esr_data import esr_table
-
-def find_capacitor(capacitance):
-    for capacitor in esr_table:
-        if capacitor["capacitance"] == capacitance:
-            return capacitor
-    return None
+from esr_utils import find_capacitor, evaluate_esr
 
 
 def main():
@@ -15,18 +9,38 @@ def main():
             print("Program closed.")
             break
 
-        searched_capacitance = float(user_input)
+        try:
+            searched_capacitance = float(user_input)
+        except ValueError:
+            print("Please enter a valid number.")
+            print("---")
+            continue
 
         capacitor = find_capacitor(searched_capacitance)
 
-        if capacitor is not None:
-            print("Capacitance:", capacitor["capacitance"], "uF")
-            print("ESR max:", capacitor["esr_max"], "Ohm")
-            print("ESR Audio:", capacitor["esr_audio"], "Ohm")
-            print("---")
-        else:
+        if capacitor is None:
             print("Capacitor value not found in the table.")
             print("---")
+            continue
+
+        print("Capacitance:", capacitor["capacitance"], "uF")
+        print("ESR max:", capacitor["esr_max"], "Ohm")
+        print("ESR Audio:", capacitor["esr_audio"], "Ohm")
+
+        measured_input = input("Enter measured ESR in Ohm: ")
+
+        try:
+            measured_esr = float(measured_input)
+        except ValueError:
+            print("Please enter a valid ESR value.")
+            print("---")
+            continue
+
+        result = evaluate_esr(measured_esr, capacitor)
+
+        print("Measured ESR:", measured_esr, "Ohm")
+        print("Result:", result)
+        print("---")
 
 
 if __name__ == "__main__":
