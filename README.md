@@ -1,3 +1,22 @@
+## Streamlit as a Lightweight UI Layer for Hardware Diagnostics
+
+This project explores whether **Streamlit** can serve as a practical interface layer for real-time hardware diagnostics.
+
+Rather than focusing on building a perfect measurement tool, the goal is to validate a broader technological question:
+
+> Can Streamlit be effectively used to prototype and operate simple diagnostic systems without investing in a full frontend stack?
+
+To answer this, a minimal ESR (Equivalent Series Resistance) measurement system was implemented and integrated with a Streamlit-based interface. This setup simulates a realistic scenario where engineers need fast, usable tooling to observe and interact with hardware signals.
+
+The project evaluates:
+- how quickly a functional UI can be built
+- how well Streamlit handles interaction with hardware data
+- whether the resulting interface is sufficient for real-world usage
+
+This is not a production system.
+
+It is a **decision-oriented experiment** designed to understand where Streamlit provides real value — and where its limitations make it unsuitable.
+
 ## Overview
 ESR Checker is a simple Python project for checking approximate ESR reference values of electrolytic capacitors based on capacitance.
 
