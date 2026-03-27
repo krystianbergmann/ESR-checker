@@ -12,20 +12,29 @@ def main():
         try:
             searched_capacitance = float(user_input)
         except ValueError:
-            print("Please enter a valid number.")
+            print("Please enter a valid capacitance value.")
             print("---")
             continue
 
-        capacitor = find_capacitor(searched_capacitance)
+        voltage_input = input("Enter capacitor voltage in V: ")
+
+        try:
+            searched_voltage = int(voltage_input)
+        except ValueError:
+            print("Please enter a valid voltage value.")
+            print("---")
+            continue
+
+        capacitor = find_capacitor(searched_capacitance, searched_voltage)
 
         if capacitor is None:
-            print("Capacitor value not found in the table.")
+            print("Capacitor value and voltage combination not found in the table.")
             print("---")
             continue
 
         print("Capacitance:", capacitor["capacitance"], "uF")
-        print("ESR max:", capacitor["esr_max"], "Ohm")
-        print("ESR Audio:", capacitor["esr_audio"], "Ohm")
+        print("Voltage:", capacitor["voltage"], "V")
+        print("Reference ESR:", capacitor["esr_reference"], "Ohm")
 
         measured_input = input("Enter measured ESR in Ohm: ")
 

@@ -1,6 +1,10 @@
 import streamlit as st
-from esr_utils import find_capacitor, evaluate_esr, get_available_capacitances
-
+from esr_utils import (
+    find_capacitor,
+    evaluate_esr,
+    get_available_capacitances,
+    get_available_voltages,
+)
 
 st.set_page_config(page_title="ESR Checker", page_icon="🔧")
 
@@ -14,6 +18,13 @@ selected_capacitance = st.selectbox(
     available_capacitances
 )
 
+available_voltages = get_available_voltages(selected_capacitance)
+
+selected_voltage = st.selectbox(
+    "Select capacitor voltage (V)",
+    available_voltages
+)
+
 measured_esr = st.number_input(
     "Enter measured ESR (Ohm)",
     min_value=0.0,
@@ -22,13 +33,13 @@ measured_esr = st.number_input(
 )
 
 if st.button("Check capacitor"):
-    capacitor = find_capacitor(selected_capacitance)
+    capacitor = find_capacitor(selected_capacitance, selected_voltage)
 
     if capacitor is not None:
         st.subheader("Reference values")
         st.write(f"**Capacitance:** {capacitor['capacitance']} uF")
-        st.write(f"**ESR max:** {capacitor['esr_max']} Ohm")
-        st.write(f"**ESR Audio:** {capacitor['esr_audio']} Ohm")
+        st.write(f"**Voltage:** {capacitor['voltage']} V")
+        st.write(f"**Reference ESR:** {capacitor['esr_reference']} Ohm")
 
         result = evaluate_esr(measured_esr, capacitor)
 
@@ -36,11 +47,9 @@ if st.button("Check capacitor"):
         st.write(f"**Measured ESR:** {measured_esr} Ohm")
         st.write(f"**Evaluation:** {result}")
 
-        if measured_esr <= capacitor["esr_audio"]:
-            st.success("Very good condition - suitable for audio use.")
-        elif measured_esr <= capacitor["esr_max"]:
-            st.warning("Capacitor is acceptable.")
+        if measured_esr <= capacitor["esr_reference"]:
+            st.success("Capacitor is within the acceptable ESR range.")
         else:
-            st.error("Capacitor is out of acceptable range.")
+            st.error("Capacitor is out of acceptable ESR range.")
     else:
-        st.error("Capacitor value not found in the table.")
+        st.error("Capacitor value and voltage combination not found in the table.")
