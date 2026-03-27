@@ -1,28 +1,36 @@
 ## Overview
+ESR Checker is a simple Python project for checking approximate ESR reference values of electrolytic capacitors based on capacitance.
 
-ESR Checker is a simple Python application for checking approximate ESR reference values of electrolytic capacitors based on capacitance.
+It was created as a learning project that combines basic Python programming with practical capacitor diagnostics. The application allows the user to enter a capacitor value manually and compare it with reference ESR values stored in a predefined table.
 
-The project started as a console-based learning tool and focuses on both Python fundamentals and basic capacitor diagnostics. It allows the user to enter a capacitor value manually and display reference ESR limits from a predefined table.
+The project now includes both:
+- a **console version** for basic terminal interaction
+- a **web interface built with the Streamlit library**
+
+Streamlit makes it possible to run the project as a simple local web application with a more user-friendly interface.
 
 ## Features
 
 - manual capacitor value input
-- ESR reference lookup based on capacitance
-- separate **ESR max** and **ESR Audio** reference levels
-- repeated checks in a continuous loop
-- simple and beginner-friendly code structure
+- ESR lookup based on capacitance
+- separate **ESR max** and **ESR Audio** reference values
+- continuous loop for repeated checks in the console version
+- simple web interface built with **Streamlit**
+- clean and beginner-friendly structure
 
 ## Project Purpose
 
-The main goal of this project is to provide a simple tool for checking whether the ESR value of an electrolytic capacitor is within an acceptable range.
+This project is intended to provide a simple way to check whether a capacitor's ESR is still within an acceptable range.
 
-It is also designed as a beginner-friendly Python project that helps practice:
+At the same time, it serves as a practical Python learning exercise focused on:
 
 - lists and dictionaries
 - loops
 - user input
-- basic data lookup
-- simple project structure
+- basic lookup logic
+- small project organization
+- separating application logic from the user interface
+- building a simple UI with Streamlit
 
 ## About ESR
 
