@@ -170,6 +170,16 @@ esr-checker/
 ```md
 ## Changelog
 
+## Changelog
+
+### v0.4.0
+- updated the ESR table to support voltage-dependent reference values
+- replaced the previous simplified capacitance-only ESR model
+- updated the console version to ask for both capacitance and voltage
+- updated the Streamlit interface to support voltage selection
+- refactored lookup logic to work with capacitance and voltage pairs
+- replaced `ESR max` / `ESR Audio` output with a voltage-based ESR reference value
+
 ### v0.3.0
 - added Streamlit user interface
 - added `app.py`
