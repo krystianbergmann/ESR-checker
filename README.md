@@ -1,22 +1,23 @@
-# ESR Checker
+## Overview
 
-A simple Python console application for checking approximate ESR values of electrolytic capacitors based on capacitance.
+ESR Checker is a simple Python application for checking approximate ESR reference values of electrolytic capacitors based on capacitance.
 
-This project is intended as a learning project for Python and basic capacitor diagnostics. It allows the user to manually enter a capacitor value and display reference ESR limits from a predefined table.
+The project started as a console-based learning tool and focuses on both Python fundamentals and basic capacitor diagnostics. It allows the user to enter a capacitor value manually and display reference ESR limits from a predefined table.
 
 ## Features
 
-- manual capacitor value input from the console
+- manual capacitor value input
 - ESR reference lookup based on capacitance
 - separate **ESR max** and **ESR Audio** reference levels
-- continuous loop mode for repeated checks
+- repeated checks in a continuous loop
 - simple and beginner-friendly code structure
 
 ## Project Purpose
 
-The goal of this project is to provide a simple tool for checking whether the ESR value of an electrolytic capacitor is within an acceptable range.
+The main goal of this project is to provide a simple tool for checking whether the ESR value of an electrolytic capacitor is within an acceptable range.
 
-It is also designed as a beginner-friendly Python project, focusing on:
+It is also designed as a beginner-friendly Python project that helps practice:
+
 - lists and dictionaries
 - loops
 - user input
