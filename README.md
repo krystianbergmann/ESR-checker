@@ -133,8 +133,6 @@ esr-checker/
 
 ## Changelog
 
-Dodaj na końcu README:
-
 ```md
 ## Changelog
 
