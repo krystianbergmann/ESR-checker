@@ -104,11 +104,20 @@ A measured ESR value can be interpreted like this:
 
 ## How to Run
 
-Run the program from the project directory:
+### Console version
+
+Run the console version from the project directory:
 
 ```bash
 python main.py
 ```
+
+### Streamlit version
+```bash
+streamlit run app.py
+```
+
+Run the Streamlit interface from the project directory:
 ## Project Structure
 
 ```text
@@ -120,4 +129,29 @@ esr-checker/
 ├── esr_data.py
 └── tests/
     └── test_main.py
+```
+
+## Changelog
+
+Dodaj na końcu README:
+
+```md
+## Changelog
+
+### v0.3.0
+- added Streamlit user interface
+- added `app.py`
+- moved ESR logic to `esr_utils.py`
+- added ESR evaluation based on measured value
+- improved project structure
+
+### v0.2.0
+- moved ESR table to `esr_data.py`
+- added function-based code structure
+- improved readability and maintainability
+
+### v0.1.0
+- initial console version
+- added ESR lookup by capacitance
+- added README, LICENSE, and `.gitignore`
 
