@@ -112,22 +112,25 @@ In real-world applications, ESR can also depend on:
 - measurement frequency
 - whether the capacitor is a general-purpose, low-ESR, audio-grade, or polymer type
 
-## ESR Reference Table
+## Voltage-Dependent ESR Reference Table
 
-| Capacitance (uF) | ESR max (Ohm) | ESR Audio (Ohm) |
-|---:|---:|---:|
-| 1 | 15.0 | 10.0 |
-| 2.2 | 10.0 | 6.0 |
-| 4.7 | 5.0 | 3.0 |
-| 10 | 3.0 | 2.0 |
-| 22 | 2.0 | 1.0 |
-| 47 | 1.0 | 0.7 |
-| 100 | 0.8 | 0.5 |
-| 220 | 0.5 | 0.3 |
-| 470 | 0.3 | 0.2 |
-| 1000 | 0.2 | 0.12 |
-| 2200 | 0.1 | 0.08 |
+The table below contains approximate ESR reference values used by the application.  
+Values depend on both capacitor capacitance and voltage rating.
 
+| Capacitance (uF) | 10V | 16V | 25V | 35V | 63V | 100V | 250V |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | - | - | - | 14 | 16 | 18 | 20 |
+| 2.2 | - | - | 6.0 | 8.0 | 10 | 10 | 18 |
+| 4.7 | - | - | 15 | 7.5 | 4.2 | 2.3 | 5.0 |
+| 10 | - | 8.0 | 5.3 | 3.2 | 2.4 | 3.0 | 2.5 |
+| 22 | 5.4 | 3.6 | 2.1 | 1.5 | 1.5 | 1.5 | 1.8 |
+| 47 | 2.2 | 1.6 | 1.2 | 0.68 | 0.56 | 0.7 | 0.8 |
+| 100 | 1.2 | 0.7 | 0.32 | 0.32 | 0.3 | 0.15 | 0.8 |
+| 220 | 0.6 | 0.33 | 0.23 | 0.17 | 0.16 | 0.09 | 0.5 |
+| 470 | 0.24 | 0.18 | 0.12 | 0.09 | 0.09 | 0.05 | 0.3 |
+| 1000 | 0.12 | 0.09 | 0.08 | 0.07 | 0.05 | 0.06 | - |
+| 4700 | 0.23 | 0.20 | 0.12 | 0.08 | 0.04 | - | - |
+| 10000 | 0.12 | 0.08 | 0.06 | 0.04 | - | - | - |
 ## Result Interpretation
 
 A measured ESR value can be interpreted like this:
@@ -170,8 +173,6 @@ esr-checker/
 ```md
 ## Changelog
 
-## Changelog
-
 ### v0.4.0
 - updated the ESR table to support voltage-dependent reference values
 - replaced the previous simplified capacitance-only ESR model
@@ -196,4 +197,4 @@ esr-checker/
 - initial console version
 - added ESR lookup by capacitance
 - added README, LICENSE, and `.gitignore`
-
+```
