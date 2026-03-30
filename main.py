@@ -1,4 +1,9 @@
-from esr_utils import find_capacitor, evaluate_esr, format_voltage
+from esr_utils import (
+    find_capacitor,
+    evaluate_esr,
+    format_voltage,
+    get_audio_threshold,
+)
 
 
 def main():
@@ -32,9 +37,12 @@ def main():
             print("---")
             continue
 
+        audio_threshold = get_audio_threshold(capacitor)
+
         print("Capacitance:", capacitor["capacitance"], "uF")
         print("Voltage:", format_voltage(capacitor["voltage"]), "V")
         print("Reference ESR:", capacitor["esr_reference"], "Ohm")
+        print("Low-ESR / Audio threshold:", audio_threshold, "Ohm")
 
         measured_input = input("Enter measured ESR in Ohm: ")
 

@@ -4,6 +4,8 @@ from esr_utils import (
     evaluate_esr,
     get_available_capacitances,
     get_available_voltages,
+    format_voltage,
+    get_audio_threshold,
 )
 
 st.set_page_config(page_title="ESR Checker", page_icon="🔧")
@@ -22,7 +24,8 @@ available_voltages = get_available_voltages(selected_capacitance)
 
 selected_voltage = st.selectbox(
     "Select capacitor voltage (V)",
-    available_voltages
+    available_voltages,
+    format_func=lambda v: format_voltage(v)
 )
 
 measured_esr = st.number_input(
@@ -36,10 +39,13 @@ if st.button("Check capacitor"):
     capacitor = find_capacitor(selected_capacitance, selected_voltage)
 
     if capacitor is not None:
+        audio_threshold = get_audio_threshold(capacitor)
+
         st.subheader("Reference values")
         st.write(f"**Capacitance:** {capacitor['capacitance']} uF")
-        st.write(f"**Voltage:** {capacitor['voltage']} V")
+        st.write(f"**Voltage:** {format_voltage(capacitor['voltage'])} V")
         st.write(f"**Reference ESR:** {capacitor['esr_reference']} Ohm")
+        st.write(f"**Low-ESR / Audio threshold:** {audio_threshold} Ohm")
 
         result = evaluate_esr(measured_esr, capacitor)
 
@@ -47,8 +53,10 @@ if st.button("Check capacitor"):
         st.write(f"**Measured ESR:** {measured_esr} Ohm")
         st.write(f"**Evaluation:** {result}")
 
-        if measured_esr <= capacitor["esr_reference"]:
-            st.success("Capacitor is within the acceptable ESR range.")
+        if result == "Low-ESR / Audio Standard":
+            st.success("Capacitor meets the Low-ESR / Audio Standard.")
+        elif result == "Acceptable":
+            st.info("Capacitor is within the acceptable ESR range.")
         else:
             st.error("Capacitor is out of acceptable ESR range.")
     else:

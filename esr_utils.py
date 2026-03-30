@@ -12,8 +12,17 @@ def find_capacitor(capacitance, voltage):
     return None
 
 
+def get_audio_threshold(capacitor):
+    return round(capacitor["esr_reference"] * 0.7, 2)
+
+
 def evaluate_esr(measured_esr, capacitor):
-    if measured_esr <= capacitor["esr_reference"]:
+    audio_threshold = get_audio_threshold(capacitor)
+    reference_esr = capacitor["esr_reference"]
+
+    if measured_esr <= audio_threshold:
+        return "Low-ESR / Audio Standard"
+    elif measured_esr <= reference_esr:
         return "Acceptable"
     else:
         return "Out of acceptable range"
