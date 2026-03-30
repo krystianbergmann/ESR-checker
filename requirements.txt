@@ -1,1 +1,2 @@
-streamlitrun
+streamlit>=1.30,<2
+plotly>=5.18,<6
