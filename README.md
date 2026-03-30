@@ -177,6 +177,11 @@ esr-checker/
 ```md
 ## Changelog
 
+### v0.6.0
+- updated the Streamlit gauge to display ESR in Ohms (Ω) instead of a percentage-like score
+- added visual thresholds on the gauge to show Low-ESR (audio) vs acceptable vs out-of-range ESR regions
+- improved gauge scaling with a dynamic axis range so measured ESR and thresholds are always visible
+
 ### v0.5.0
 - added support for 6.3V capacitor ESR reference values
 - updated the ESR table with additional low-voltage entries
