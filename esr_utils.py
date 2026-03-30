@@ -27,3 +27,9 @@ def get_available_voltages(capacitance):
     if capacitance in esr_table:
         return sorted(esr_table[capacitance].keys())
     return []
+
+
+def format_voltage(voltage):
+    if voltage == int(voltage):
+        return str(int(voltage))
+    return str(voltage)

@@ -1,4 +1,4 @@
-from esr_utils import find_capacitor, evaluate_esr
+from esr_utils import find_capacitor, evaluate_esr, format_voltage
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
         voltage_input = input("Enter capacitor voltage in V: ")
 
         try:
-            searched_voltage = int(voltage_input)
+            searched_voltage = float(voltage_input)
         except ValueError:
             print("Please enter a valid voltage value.")
             print("---")
@@ -33,7 +33,7 @@ def main():
             continue
 
         print("Capacitance:", capacitor["capacitance"], "uF")
-        print("Voltage:", capacitor["voltage"], "V")
+        print("Voltage:", format_voltage(capacitor["voltage"]), "V")
         print("Reference ESR:", capacitor["esr_reference"], "Ohm")
 
         measured_input = input("Enter measured ESR in Ohm: ")
