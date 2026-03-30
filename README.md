@@ -96,14 +96,14 @@ In many audio circuits, lower ESR is preferred for better stability and performa
 
 ## Important Note
 
-The ESR values used in this project are **simplified reference values**.
+The ESR values used in this project are **approximate reference values**.
 
 They are intended for:
 - learning purposes
 - quick comparison
 - basic ESR interpretation
 
-They are **not manufacturer-specific specifications** and should not be treated as exact replacement for datasheet values.
+They are **not manufacturer-specific specifications** and should not be treated as a replacement for datasheet values.
 
 In real-world applications, ESR can also depend on:
 - capacitor voltage rating
@@ -112,25 +112,29 @@ In real-world applications, ESR can also depend on:
 - measurement frequency
 - whether the capacitor is a general-purpose, low-ESR, audio-grade, or polymer type
 
+Some values in this project are based on published reference lookup charts and should be treated as practical guidance rather than universal limits.
+
 ## Voltage-Dependent ESR Reference Table
 
 The table below contains approximate ESR reference values used by the application.  
 Values depend on both capacitor capacitance and voltage rating.
 
-| Capacitance (uF) | 10V | 16V | 25V | 35V | 63V | 100V | 250V |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | - | - | - | 14 | 16 | 18 | 20 |
-| 2.2 | - | - | 6.0 | 8.0 | 10 | 10 | 18 |
-| 4.7 | - | - | 15 | 7.5 | 4.2 | 2.3 | 5.0 |
-| 10 | - | 8.0 | 5.3 | 3.2 | 2.4 | 3.0 | 2.5 |
-| 22 | 5.4 | 3.6 | 2.1 | 1.5 | 1.5 | 1.5 | 1.8 |
-| 47 | 2.2 | 1.6 | 1.2 | 0.68 | 0.56 | 0.7 | 0.8 |
-| 100 | 1.2 | 0.7 | 0.32 | 0.32 | 0.3 | 0.15 | 0.8 |
-| 220 | 0.6 | 0.33 | 0.23 | 0.17 | 0.16 | 0.09 | 0.5 |
-| 470 | 0.24 | 0.18 | 0.12 | 0.09 | 0.09 | 0.05 | 0.3 |
-| 1000 | 0.12 | 0.09 | 0.08 | 0.07 | 0.05 | 0.06 | - |
-| 4700 | 0.23 | 0.20 | 0.12 | 0.08 | 0.04 | - | - |
-| 10000 | 0.12 | 0.08 | 0.06 | 0.04 | - | - | - |
+| Capacitance (uF) | 6.3V | 10V | 16V | 25V | 35V | 63V | 100V | 250V |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | - | - | - | - | 14 | 16 | 18 | 20 |
+| 2.2 | - | - | - | 6.0 | 8.0 | 10 | 10 | 18 |
+| 4.7 | 62 | - | - | 15 | 7.5 | 4.2 | 2.3 | 5.0 |
+| 10 | 29 | - | 8.0 | 5.3 | 3.2 | 2.4 | 3.0 | 2.5 |
+| 22 | 13 | 5.4 | 3.6 | 2.1 | 1.5 | 1.5 | 1.5 | 1.8 |
+| 47 | 6.2 | 2.2 | 1.6 | 1.2 | 0.68 | 0.56 | 0.7 | 0.8 |
+| 100 | 2.9 | 1.2 | 0.7 | 0.32 | 0.32 | 0.3 | 0.15 | 0.8 |
+| 220 | 1.3 | 0.6 | 0.33 | 0.23 | 0.17 | 0.16 | 0.09 | 0.5 |
+| 470 | 0.62 | 0.24 | 0.18 | 0.12 | 0.09 | 0.09 | 0.05 | 0.3 |
+| 1000 | 0.29 | 0.12 | 0.09 | 0.08 | 0.07 | 0.05 | 0.06 | - |
+| 2200 | 0.16 | - | - | - | - | - | - | - |
+| 4700 | 0.09 | 0.23 | 0.20 | 0.12 | 0.08 | 0.04 | - | - |
+| 10000 | 0.06 | 0.12 | 0.08 | 0.06 | 0.04 | - | - | - |
+| 22000 | 0.04 | - | - | - | - | - | - | - |
 ## Result Interpretation
 
 A measured ESR value can be interpreted like this:
@@ -172,6 +176,14 @@ esr-checker/
 
 ```md
 ## Changelog
+
+### v0.5.0
+- added support for 6.3V capacitor ESR reference values
+- updated the ESR table with additional low-voltage entries
+- updated the console version to support float voltage input
+- updated the Streamlit interface to handle 6.3V values correctly
+- improved voltage formatting in both console and Streamlit versions
+- updated README documentation and ESR reference table
 
 ### v0.4.0
 - updated the ESR table to support voltage-dependent reference values
